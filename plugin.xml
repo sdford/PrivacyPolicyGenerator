@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Pirvacy Policy Statement Generator Category"
+            id="PrivacyPolicyStatementGenerator">
+      </category>
+      <view
+            name="Pirvacy Policy Statement Generator View"
+            icon="icons/sample.gif"
+            category="PrivacyPolicyStatementGenerator"
+            class="privacypolicystatementgenerator.views.PrivacyPolicyStatementGeneratorView"
+            id="privacypolicystatementgenerator.views.PrivacyPolicyStatementGeneratorView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="stack"
+               id="privacypolicystatementgenerator.views.PrivacyPolicyStatementGeneratorView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            description="This opens the workbench for PPSG"
+            id="PrivacyPolicyStatementGenerator.workbenchActionSet"
+            label="Privacy Policy Statement Generator ActionSet">
+         <menu
+               id="PrivacyPolicyStatementGenerator.workbenchMenu"
+               label="Privacy Policy Statement Generator"
+               path="additions">
+            <separator
+                  name="additions">
+            </separator>
+            <groupMarker
+                  name="content">
+            </groupMarker>
+         </menu>
+         <action
+               class="privacypolicystatementgenerator.actions.OpenPrivacyPolicyStatementGeneratorViewActionDelegate"
+               icon="icons/sample.gif"
+               id="PrivacyPolicyStatementGenerator.openPrivacyPolicyStatementGeneratorView"
+               label="open &amp;Privacy Policy Statement Generator View"
+               menubarPath="PrivacyPolicyStatementGenerator.actions/content"
+               style="pulldown"
+               toolbarPath="Normal/additions">
+         </action>
+      </actionSet>
+   </extension>
+
+</plugin>
