@@ -39,9 +39,10 @@
       <actionSet
             description="This opens the workbench for PPSG"
             id="PrivacyPolicyStatementGenerator.workbenchActionSet"
-            label="Privacy Policy Statement Generator ActionSet">
+            label="Privacy Policy Statement Generator ActionSet"
+            visible="true">
          <menu
-               id="PrivacyPolicyStatementGenerator.workbenchMenu"
+               id="PrivacyPolicyStatementGenerator.actions"
                label="Privacy Policy Statement Generator"
                path="additions">
             <separator
@@ -57,7 +58,7 @@
                id="PrivacyPolicyStatementGenerator.openPrivacyPolicyStatementGeneratorView"
                label="open &amp;Privacy Policy Statement Generator View"
                menubarPath="PrivacyPolicyStatementGenerator.actions/content"
-               style="pulldown"
+               style="toggle"
                toolbarPath="Normal/additions">
          </action>
       </actionSet>
