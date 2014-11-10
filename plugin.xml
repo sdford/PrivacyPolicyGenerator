@@ -63,5 +63,19 @@
          </action>
       </actionSet>
    </extension>
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="PrivacyPolicyStatementGenerator.viewContribution1"
+            targetID="privacypolicystatementgenerator.views.PrivacyPolicyStatementGeneratorView">
+         <action
+               class="privacypolicystatementgenerator.actions.ViewActionDelegateTest"
+               id="PrivacyPolicyStatementGenerator.viewAction1"
+               label="click me"
+               style="push"
+               toolbarPath="additions">
+         </action>
+      </viewContribution>
+   </extension>
 
 </plugin>
