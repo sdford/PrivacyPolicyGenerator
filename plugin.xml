@@ -15,6 +15,14 @@
             class="privacypolicystatementgenerator.views.PrivacyPolicyStatementGeneratorView"
             id="privacypolicystatementgenerator.views.PrivacyPolicyStatementGeneratorView">
       </view>
+      <view
+            category="PrivacyPolicyStatementGenerator"
+            class="privacypolicystatementgenerator.views.PropertyManagerView"
+            icon="icons/sample.gif"
+            id="PrivacyPolicyStatementGenerator.views.Test"
+            name="Property Manager View"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
