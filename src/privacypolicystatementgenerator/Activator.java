@@ -3,7 +3,6 @@ package privacypolicystatementgenerator;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-import privacypolicystatementgenerator.coordinator.Coordinator;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -15,7 +14,6 @@ public class Activator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static Activator plugin;
-	private Coordinator coordinator;
 	
 	/**
 	 * The constructor
@@ -30,7 +28,6 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		coordinator = new Coordinator();
 	}
 
 	/*
@@ -40,7 +37,6 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
-		coordinator = null;
 	}
 
 	/**

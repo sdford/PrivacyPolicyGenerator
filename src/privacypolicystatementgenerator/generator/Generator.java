@@ -10,12 +10,24 @@ import privacypolicystatementgenerator.data.Data;
 
 public class Generator {
 	
-	public static void generate(Data data, String path) {
+	private static Generator generator;
+	
+	private Generator() {
+	}
+	
+	public static Generator getInstance() {
+		if (generator == null) {
+			generator = new Generator();
+		}
+		return generator;
+	}
+	
+	public void generatePolicy(Data data, String path) {
 		File policy = createPolicyFile(path);
 		writePolicy(data, policy);
 	}
 	
-	public static void writePolicy(Data data, File policy) {
+	public void writePolicy(Data data, File policy) {
 		List<String> infoShared = data.getData();
 		try {
 			FileWriter fw = new FileWriter(policy.getAbsoluteFile());
@@ -27,7 +39,7 @@ public class Generator {
 		}
 	}
 
-	private static File createPolicyFile(String path) {
+	private File createPolicyFile(String path) {
 		File policy = new File(path);
 		
 		try {
@@ -40,7 +52,7 @@ public class Generator {
 		return policy;
 	}
 
-	private static void replaceExistingPolicyFile(File policy) {
+	private void replaceExistingPolicyFile(File policy) {
 		policy.delete();
 		try {
 			policy.createNewFile();

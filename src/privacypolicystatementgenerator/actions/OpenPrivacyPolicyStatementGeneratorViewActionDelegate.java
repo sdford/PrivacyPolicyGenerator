@@ -8,7 +8,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
 
-import wizards.CaptureInfoWizard;
+import privacypolicystatementgenerator.appinfowizard.AppInfoInput;
+import privacypolicystatementgenerator.coordinator.Coordinator;
 
 /** 
  * This class is the action that is triggered when clicking the menu to open
@@ -30,7 +31,8 @@ public class OpenPrivacyPolicyStatementGeneratorViewActionDelegate implements
     
 	@Override
 	public void run(IAction action) {
-        CaptureInfoWizard wizard = new CaptureInfoWizard();
+		Coordinator coordinator = new Coordinator();
+        AppInfoInput wizard = new AppInfoInput(coordinator);
         WizardDialog dialog = new WizardDialog(window.getShell(), wizard);
         dialog.create();
         dialog.open();
