@@ -3,10 +3,8 @@ package privacypolicystatementgenerator.actions;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
-import org.eclipse.ui.PartInitException;
 
 import privacypolicystatementgenerator.appinfowizard.AppInfoInput;
 import privacypolicystatementgenerator.coordinator.Coordinator;
@@ -34,6 +32,7 @@ public class OpenPrivacyPolicyStatementGeneratorViewActionDelegate implements
 		Coordinator coordinator = new Coordinator();
         AppInfoInput wizard = new AppInfoInput(coordinator);
         WizardDialog dialog = new WizardDialog(window.getShell(), wizard);
+        wizard.setContainer(dialog);
         dialog.create();
         dialog.open();
 		/*

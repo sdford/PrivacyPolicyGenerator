@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import privacypolicystatementgenerator.data.Data;
+import privacypolicystatementgenerator.data.ParsedInfo;
 
 public class Generator {
 	
@@ -22,12 +22,15 @@ public class Generator {
 		return generator;
 	}
 	
-	public void generatePolicy(Data data, String path) {
+	public void generatePolicy(ParsedInfo data, String path) {
+		return;
+		/*
 		File policy = createPolicyFile(path);
 		writePolicy(data, policy);
+		*/
 	}
 	
-	public void writePolicy(Data data, File policy) {
+	public void writePolicy(ParsedInfo data, File policy) {
 		List<String> infoShared = data.getData();
 		try {
 			FileWriter fw = new FileWriter(policy.getAbsoluteFile());

@@ -8,12 +8,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import privacypolicystatementgenerator.coordinator.Coordinator;
-import privacypolicystatementgenerator.data.Data;
+import privacypolicystatementgenerator.data.ParsedInfo;
 
 public class CapturedInfoPage extends WizardPage {
 
 	private Coordinator coordinator;
-	private Data parsedInfo;
+	private ParsedInfo parsedInfo;
 	
 	protected CapturedInfoPage(String pageName, Coordinator coordinator) {
 		super(pageName);

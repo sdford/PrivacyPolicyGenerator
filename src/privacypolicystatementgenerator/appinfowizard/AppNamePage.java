@@ -2,6 +2,8 @@ package privacypolicystatementgenerator.appinfowizard;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -14,10 +16,17 @@ public class AppNamePage extends WizardPage {
 	private Text appName;
 	private Text appDescription;
 	private Coordinator coordinator;
-
+	private ModifyListener listener;
+	
 	protected AppNamePage(String pageName, Coordinator coordinator) {
 		super(pageName);
 		this.coordinator = coordinator;
+		this.listener = new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				getContainer().updateButtons();
+			}
+		};
 		setTitle("Mobile Application Title");
         setDescription("Please enter your Mobile Application's name and description");
 	}
@@ -31,15 +40,22 @@ public class AppNamePage extends WizardPage {
         setControl(composite);
         new Label(composite,SWT.NONE).setText("Title");
         appName = new Text(composite,SWT.NONE);
+        appName.addModifyListener(listener);
         new Label(composite,SWT.NONE).setText("Description");
         appDescription = new Text(composite,SWT.NONE);
+        appDescription.addModifyListener(listener);
 	}
-
-	public Text getAppName() {
-		return appName;
+	
+	@Override
+	public boolean isPageComplete() {
+		if (appName.getCharCount() == 0 && appDescription.getCharCount() == 0) 
+			return false;
+		return true;
 	}
-
-	public Text getAppDescription() {
-		return appDescription;
+	
+	public void collectInfo() { 
+		System.out.println(appName.getText());
+		coordinator.setAppName(appName.getText());
+		coordinator.setAppDescription(appDescription.getText());
 	}
 }

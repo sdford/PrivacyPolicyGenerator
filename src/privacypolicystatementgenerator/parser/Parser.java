@@ -1,6 +1,6 @@
 package privacypolicystatementgenerator.parser;
 
-import privacypolicystatementgenerator.data.Data;
+import privacypolicystatementgenerator.data.ParsedInfo;
 
 public class Parser {
 
@@ -16,8 +16,8 @@ public class Parser {
 		return parser;
 	}
 	
-	public Data parse(){
-		return new Data();
+	public ParsedInfo parse(){
+		return new ParsedInfo();
 	}
 	
 }
